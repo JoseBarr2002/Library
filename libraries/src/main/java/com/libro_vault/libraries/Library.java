@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
+/**
+ * Class that represents the data structure for the Library in MongoDB.
+ */
 @Document(collection = "libraries")
 public class Library {
 
@@ -16,8 +19,8 @@ public class Library {
     private String id;
     /** Library name */
     private String name;
-    /** Library description */
-    private String description;
+    // /** Library description */
+    // private String description;
 
     /** Books associated with the Library. */
     // @DBRef private List<Book> books; // Uncomment when Book entity is ready
@@ -36,9 +39,9 @@ public class Library {
      * @param name        The name of the Library.
      * @param description The description of a Library.
      */
-    public Library(String name, String description) {
+    public Library(String id, String name) {
+        this.id = id;
         this.name = name;
-        this.description = description;
     }
 
     // Getters and Setters
@@ -79,21 +82,19 @@ public class Library {
         this.name = name;
     }
 
-    /**
-     * Retreives the description of the Library.
-     * 
-     * @return The description of the Library.
-     */
-    public String getDescription() {
-        return description;
-    }
+    // public List<Book> getBooks() {
+    // return books;
+    // }
 
-    /**
-     * Sets the description of the Library.
-     * 
-     * @param description The description of the Library.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    // public void setBooks(List<Book> books) {
+    // this.books = books;
+    // }
+
+    // public User getUser() {
+    // return user;
+    // }
+
+    // public void setUser(User user) {
+    // this.user = user;
+    // }
 }
